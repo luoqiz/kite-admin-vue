@@ -94,10 +94,10 @@ async function fetchRemoteRoute() {
 async function autoload(router: Router) {
   const remoteFlag = !!getToken();
 
-  if (remoteFlag) {
-    const remoteRoutes = await fetchRemoteRoute();
-    routes = [...routes, ...remoteRoutes];
-  }
+  // if (remoteFlag) {
+  //   const remoteRoutes = await fetchRemoteRoute();
+  //   routes = [...routes, ...remoteRoutes];
+  // }
 
   routes = routes.map((route) => {
     route.children = filterNestedChildren(route.children!);

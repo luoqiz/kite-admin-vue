@@ -1,3 +1,68 @@
+/**
+ * 登录时获取的用户信息model
+ */
+export interface LoginUserInfoModel {
+  password: string;
+  username: string;
+  authorities: any[];
+  accountNonExpired: boolean;
+  accountNonLocked: boolean;
+  credentialsNonExpired: boolean;
+  enabled: boolean;
+  userId: string;
+  nickName: string;
+  avatarPath: string;
+  deptId: string;
+  tokenInfo: TokenInfo;
+}
+
+interface TokenInfo {
+  token: string;
+  userId: string;
+  userName: string;
+  expired: number;
+  authorities: any[];
+}
+
+/**
+ * 根据token获取的用户信息model
+ */
+export interface UserInfoTokenModel {
+  userId: string;
+  permission: string; // 暂未知作用
+  deptId: string;
+  username: string;
+  nickName: string;
+  gender: string;
+  phone: string;
+  email: string;
+  avatarName: string;
+  avatarPath: string;
+  isAdmin: boolean;
+  enabled: boolean;
+  expireTime: string;
+  nonLocked: boolean;
+  createBy: string;
+  updateBy: string;
+  pwdResetTime: string;
+  createTime: number;
+  updateTime: number;
+  userExtend: string;
+  roles: string[];
+  menus: Menus[];
+}
+
+interface Menus {
+  menuId: string;
+  pid: string;
+  icon: string;
+  title: string;
+  path: string;
+  redirect: string;
+  component: string;
+  children: Menus[];
+}
+
 export interface UserInfoModel {
   avatar: string;
   permission: string;

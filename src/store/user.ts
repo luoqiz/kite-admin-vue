@@ -1,38 +1,45 @@
-import { fetchAdminInfo, fetchEditorInfo, ILoginForm, userLogin } from "@/api/user";
+import {
+  fetchAdminInfo,
+  fetchEditorInfo,
+  fetchUserInfoByToken,
+  ILoginForm,
+  userLogin
+} from "@/api/user";
 import permissionService from "@/hooks/usePermission";
-import { UserInfoModel } from "@/model/user";
+import { UserInfoModel, UserInfoTokenModel } from "@/model/user";
 import { setToken } from "@/utils/auth";
 import { defineStore } from "pinia";
 
 export const userStore = defineStore("user", {
   state: () => {
     return {
-      info: {} as null | UserInfoModel
+      info: {} as null | UserInfoTokenModel
     };
   },
   getters: {
     name: (state) => {
-      return state.info?.name;
+      return state.info?.nickName;
     },
     avatar: (state) => {
-      return state.info?.avatar;
+      return state.info?.avatarPath;
     },
     isEmpty: (state) => {
       return Object.keys(state.info!).length === 0;
     },
     permission: (state) => {
-      return state.info?.permission;
+      return state.info?.roles;
     }
   },
   actions: {
     async getUserInfo() {
-      const permissions = permissionService.defaultPermission;
       let data;
-      if (permissions.value === "admin") {
-        ({ data } = await fetchAdminInfo());
-      } else {
-        ({ data } = await fetchEditorInfo());
-      }
+      // const permissions = permissionService.defaultPermission;
+      // if (permissions.value === "admin") {
+      //   ({ data } = await fetchAdminInfo());
+      // } else {
+      //   ({ data } = await fetchEditorInfo());
+      // }
+      ({ data } = await fetchUserInfoByToken());
       if (data) {
         this.$state.info = data;
       }
@@ -40,10 +47,11 @@ export const userStore = defineStore("user", {
     async login(loginParam: ILoginForm, success: () => void, error: (err: any) => void) {
       try {
         const {
-          data: { token }
+          data: { tokenInfo }
         } = await userLogin(loginParam);
-        if (token) {
-          setToken(token);
+        console.log(tokenInfo);
+        if (tokenInfo) {
+          setToken(tokenInfo.token);
           await this.getUserInfo();
           success();
         } else {

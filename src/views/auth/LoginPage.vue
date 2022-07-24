@@ -19,12 +19,13 @@ const schema = {
   account: yup
     .string()
     .required()
-    .matches(/^\d{11}|.+@.+$/, t("page.common.login.form.schema.email"))
+    // .matches(/^\d{11}|.+@.+$/, t("page.common.login.form.schema.email"))
+    .matches(/^\d{11}|.+@.+$/, "123123")
     .label(t("page.common.login.form.schema.label.email")),
   password: yup
     .string()
     .required()
-    .min(3, t("page.common.login.form.schema.password"))
+    .min(6, t("page.common.login.form.schema.password"))
     .label(t("page.common.login.form.schema.label.password"))
 };
 
@@ -48,7 +49,7 @@ const onSubmit = handleSubmit(async (values: any) => {
       } else {
         router.push("/dashboard");
       }
-      useMessage("success", `${time}，${userState.info!.name}`);
+      useMessage("success", `${time}，${userState.info!.nickName}`);
     },
     (err) => {
       useMessage("error", err);
@@ -75,7 +76,6 @@ const onSubmit = handleSubmit(async (values: any) => {
             <div class="relative">
               <input
                 v-model="values.account"
-                type="email"
                 :placeholder="mailInputText"
                 class="mt-1 pl-2 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
               />
