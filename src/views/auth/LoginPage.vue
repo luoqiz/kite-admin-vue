@@ -19,13 +19,12 @@ const schema = {
   account: yup
     .string()
     .required()
-    // .matches(/^\d{11}|.+@.+$/, t("page.common.login.form.schema.email"))
-    .matches(/^\d{11}|.+@.+$/, "123123")
+    .matches(/^\d{11}|.+@.+$/, t("page.common.login.form.schema.email"))
     .label(t("page.common.login.form.schema.label.email")),
   password: yup
     .string()
     .required()
-    .min(6, t("page.common.login.form.schema.password"))
+    .min(3, t("page.common.login.form.schema.password"))
     .label(t("page.common.login.form.schema.label.password"))
 };
 

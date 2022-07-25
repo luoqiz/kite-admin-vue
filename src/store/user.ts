@@ -49,7 +49,6 @@ export const userStore = defineStore("user", {
         const {
           data: { tokenInfo }
         } = await userLogin(loginParam);
-        console.log(tokenInfo);
         if (tokenInfo) {
           setToken(tokenInfo.token);
           await this.getUserInfo();
