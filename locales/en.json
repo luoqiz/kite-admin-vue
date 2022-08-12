@@ -137,7 +137,7 @@
   "page.common.system.user.column.avatar": "avatar",
   "page.common.system.user.column.enabled": "status",
   "page.common.system.user.column.expireTime": "Account expireTime",
-  "page.common.system.user.column.nonLocked": "Account nonLocked",
+  "page.common.system.user.column.nonLocked": "Account Locked",
   "page.common.system.user.column.createTime": "createTime",
   "page.common.system.user.column.updateTime": "updateTime"
 }

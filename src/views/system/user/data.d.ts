@@ -1,6 +1,13 @@
 import { CTableColumn } from "#/table";
-import { ArticleModel } from "@/model/article";
 import { useI18n } from "vue-i18n";
+
+export const url: Partial<UrlListType> = {
+  list: "/v1/sys-user/search",
+  add: "/v1/sys-user",
+  batchDelete: "/v1/sys-user",
+  delete: "/v1/sys-user/${userId}",
+  edit: "/v1/sys-user"
+};
 
 export const setupUserAttributes = () => {
   const { t } = useI18n();
@@ -51,58 +58,71 @@ export const setupUserAttributes = () => {
           placeholder: t("page.common.system.user.expireTime_placeholder"),
           maxLength: "24"
         }
-      },
-      {
-        label: t("page.common.design.article.search.type"),
-        name: "type",
-        tagName: "async-select",
-        props: {
-          placeholder: t("page.common.design.article.search.type_placeholder"),
-          url: "/article/type",
-          size: "default",
-          style: {
-            width: "100%"
-          }
-        }
       }
+      // {
+      //   label: t("page.common.design.article.search.type"),
+      //   name: "type",
+      //   tagName: "async-select",
+      //   props: {
+      //     placeholder: t("page.common.design.article.search.type_placeholder"),
+      //     url: "/article/type",
+      //     size: "default",
+      //     style: {
+      //       width: "100%"
+      //     }
+      //   }
+      // }
     ];
   });
 
   const tableColumns = computed<CTableColumn<SysUserDataModel>[]>(() => {
     return [
       {
+        type: "selection",
+        show: true,
+        width: "55"
+      },
+      {
         prop: "username",
+        show: true,
         label: t("page.common.system.user.column.username"),
         fixed: "left",
-        width: "180"
+        locked: true,
+        showOverflowTooltip: true
       },
       {
         prop: "nickName",
+        show: true,
         label: t("page.common.system.user.column.nickName"),
         width: "180"
       },
       {
         prop: "deptId",
+        show: true,
         label: t("page.common.system.user.column.deptId"),
         width: "180"
       },
       {
         prop: "gender",
+        show: true,
         label: t("page.common.system.user.column.gender"),
         width: "180"
       },
       {
         prop: "phone",
+        show: true,
         label: t("page.common.system.user.column.phone"),
         width: "180"
       },
       {
         prop: "email",
+        show: true,
         label: t("page.common.system.user.column.email"),
         width: "180"
       },
       {
         prop: "avatarPath",
+        show: true,
         label: t("page.common.system.user.column.avatar"),
         width: "180",
         scoped: "avatar"
@@ -134,6 +154,7 @@ export const setupUserAttributes = () => {
       },
       {
         prop: "actions",
+        show: true,
         label: t("page.common.design.article.column.action"),
         fixed: "right",
         scoped: "actions",

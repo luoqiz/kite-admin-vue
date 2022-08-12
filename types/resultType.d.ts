@@ -1,4 +1,4 @@
-// export interface BasicGetResult<T> {
+// export interface BasicResult<T> {
 //   code: number;
 //   message: string;
 //   status: string;
@@ -6,7 +6,7 @@
 //   data: T;
 // }
 
-export interface BasicGetResult<T> {
+export interface BasicResult<T> {
   code: number;
   msg: string;
   success: boolean;

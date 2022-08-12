@@ -1,18 +1,10 @@
 <script setup lang="ts">
-import { UrlListType } from "@/utils/list/listFactory";
 import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
 import { useI18n } from "vue-i18n";
-import { setupUserAttributes, SysUserDataModel } from "./data.d";
+import { setupUserAttributes, SysUserDataModel, url } from "./data.d";
 import Edit from "./edit.vue";
 
 const { t } = useI18n();
-
-const url: Partial<UrlListType> = {
-  add: "/v1/sys-user",
-  list: "/v1/sys-user/search",
-  delete: "/v1/sys-user/${userId}",
-  edit: "/v1/sys-user"
-};
 
 const initialValues = {
   title: "",
@@ -27,7 +19,13 @@ const searchParams = ref(initialValues);
 const filterOptions = computed(() => {
   return searchFilterOptions.value;
 });
+
+const isEmpty = computed(() => {
+  return ids.value.length === 0;
+});
+
 const {
+  ids,
   loading,
   dataSource,
   ipagination,
@@ -35,9 +33,11 @@ const {
   loadData,
   handleSizeChange,
   handleCurrentChange,
-  handleAdd,
-  handleEdit,
+  handleSelectionChange,
+  handleOpenAddDialog,
+  handleOpenEditDialog,
   handleDelete,
+  handleBatchDelete,
   handleSearch,
   handleReset
 } = useSimpleList<SysUserDataModel>(url) as SimpleListType;
@@ -55,25 +55,35 @@ const {
           @search="handleSearch"
         />
       </div>
-      <div class="mx-3 mt-5">
-        <el-button type="primary" @click="handleAdd()">{{ t("page.common.btn.add") }}</el-button>
-        <el-button type="danger">{{ t("page.common.btn.delete") }}</el-button>
-      </div>
       <c-table
         v-loading="loading"
         :table-data="dataSource"
+        :show-header="true"
         :columns="tableColumns"
         align="right"
         header-align="right"
         stripe
         style="width: 100%"
+        @selection-change="handleSelectionChange"
       >
+        <template #options>
+          <el-button type="primary" icon="plus" circle @click="handleOpenAddDialog" />
+          <el-popconfirm
+            :title="t('page.common.btn.batchDelete_popover')"
+            @confirm="handleBatchDelete()"
+          >
+            <template #reference>
+              <el-button :disabled="isEmpty" type="danger" icon="delete" circle />
+            </template>
+          </el-popconfirm>
+        </template>
+
         <template #avatar="{ scope }">
           <el-avatar shape="square" fit="fill" :src="scope.row.avatarPath" />
         </template>
 
         <template #actions="{ scope }">
-          <el-button size="small" @click="handleEdit(scope.row)">{{
+          <el-button size="small" @click="handleOpenEditDialog(scope.row)">{{
             t("page.common.btn.edit")
           }}</el-button>
           <el-popconfirm
@@ -101,5 +111,5 @@ const {
       </div>
     </div>
   </div>
-  <Edit ref="modalFormRef" @close="loadData" @submit="hand" />
+  <Edit ref="modalFormRef" @close="loadData" />
 </template>
