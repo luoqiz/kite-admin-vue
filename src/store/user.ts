@@ -25,6 +25,9 @@ export const userStore = defineStore("user", () => {
   const permission = computed(() => {
     return info.value?.roles;
   });
+  const roleList = computed(() => {
+    return info.value?.roleList;
+  });
 
   async function getUserInfo() {
     let data;
@@ -63,6 +66,7 @@ export const userStore = defineStore("user", () => {
     avatar,
     isEmpty,
     permission,
+    roleList,
     login,
     getUserInfo
   };

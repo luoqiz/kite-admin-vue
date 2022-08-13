@@ -39,6 +39,7 @@
   "router.permission": "Permission Pages",
   "router.normal": "Normal Permission",
   "router.extra": "Extra Permission",
+  "router.button": "Button Permission",
   "router.system": "System Manage",
   "router.system.user": "User Manage",
   "page.403.title": "403",
