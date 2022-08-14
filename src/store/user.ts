@@ -23,10 +23,10 @@ export const userStore = defineStore("user", () => {
     return Object.keys(info.value!).length === 0;
   });
   const permission = computed(() => {
-    return info.value?.roles;
+    return info.value?.permission;
   });
   const roleList = computed(() => {
-    return info.value?.roleList;
+    return info.value?.roles;
   });
 
   async function getUserInfo() {
