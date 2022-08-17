@@ -9,7 +9,7 @@ export type UrlListType = {
 class ListFactory<T, U> {
   dataSource = ref<T[]>([]);
   loading = ref<boolean>(false);
-  ids = ref<number[]>([]);
+  ids = ref<number[] | string[]>([]);
   queryParam = ref<U>();
   url = ref<Partial<UrlListType>>({});
   modalFormRef = ref<any>();

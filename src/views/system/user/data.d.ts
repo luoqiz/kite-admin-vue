@@ -2,11 +2,11 @@ import { CTableColumn } from "#/table";
 import { useI18n } from "vue-i18n";
 
 export const url: Partial<UrlListType> = {
-  list: "/v1/sys-user/search",
-  add: "/v1/sys-user",
-  batchDelete: "/v1/sys-user",
-  delete: "/v1/sys-user/${userId}",
-  edit: "/v1/sys-user"
+  list: "/v1/sysUser:search",
+  add: "/v1/sysUser",
+  batchDelete: "/v1/sysUser",
+  delete: "/v1/sysUser",
+  edit: "/v1/sysUser"
 };
 
 export const setupUserAttributes = () => {
@@ -80,6 +80,7 @@ export const setupUserAttributes = () => {
       {
         type: "selection",
         show: true,
+        fixed: "left",
         width: "55"
       },
       {
@@ -87,8 +88,7 @@ export const setupUserAttributes = () => {
         show: true,
         label: t("page.common.system.user.column.username"),
         fixed: "left",
-        locked: true,
-        showOverflowTooltip: true
+        locked: true
       },
       {
         prop: "nickName",
@@ -129,11 +129,13 @@ export const setupUserAttributes = () => {
       },
       {
         prop: "enabled",
+        show: true,
         label: t("page.common.system.user.column.enabled"),
         width: "180"
       },
       {
         prop: "expireTime",
+        show: true,
         label: t("page.common.system.user.column.expireTime"),
         width: "180"
       },
@@ -170,7 +172,7 @@ export const setupUserAttributes = () => {
 };
 
 export interface SysUserDataModel {
-  userId: number; //ID
+  id: number; //ID
   deptId?: number; //部门名称
   username?: string; //用户名
   nickName?: string; //昵称

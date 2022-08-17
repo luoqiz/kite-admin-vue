@@ -18,7 +18,7 @@ const title = ref("");
 const { gtMd } = useScreenPixel();
 const model = ref<Partial<SysUserDataModel>>({});
 const isEdit = computed<boolean>(() => {
-  return model.value.userId !== undefined;
+  return model.value.id !== undefined;
 });
 
 const dialogWidth = computed(() => {
