@@ -60,7 +60,6 @@ const {
         :table-data="dataSource"
         :show-header="true"
         :columns="tableColumns"
-        align="right"
         header-align="right"
         stripe
         style="width: 100%"
