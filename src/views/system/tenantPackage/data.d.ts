@@ -38,11 +38,33 @@ export const setupAttributes = () => {
       {
         label: t("page.common.system.tenant.package.column.status"),
         name: "status",
-        tagName: "el-input",
+        type: "select",
         props: {
-          placeholder: t("page.common.system.tenant.package.column.status_placeholder"),
-          maxLength: "24"
-        }
+          placeholder: t("page.common.system.tenant.package.column.status_placeholder")
+        },
+        children: [
+          {
+            tagName: "el-option",
+            props: {
+              label: "全部",
+              value: ""
+            }
+          },
+          {
+            tagName: "el-option",
+            props: {
+              label: "正常",
+              value: "1"
+            }
+          },
+          {
+            tagName: "el-option",
+            props: {
+              label: "停用",
+              value: "0"
+            }
+          }
+        ]
       }
     ];
   });

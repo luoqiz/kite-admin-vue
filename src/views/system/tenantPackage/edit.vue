@@ -59,22 +59,6 @@ async function submitForm(formEl: FormInstance | undefined) {
 const options = computed(() => {
   return [
     {
-      name: "id",
-      type: "input",
-      label: t("page.common.system.tenant.package.column.id"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.package.column.id_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.package.column.id_placeholder")
-      }
-    },
-    {
       name: "name",
       type: "input",
       label: t("page.common.system.tenant.package.column.name"),
@@ -92,7 +76,7 @@ const options = computed(() => {
     },
     {
       name: "status",
-      type: "el-switch",
+      tagName: "el-switch",
       label: t("page.common.system.tenant.package.column.status"),
       rules: [
         {
@@ -135,86 +119,6 @@ const options = computed(() => {
       props: {
         maxLength: 50,
         placeholder: t("page.common.system.tenant.package.column.menuIds_placeholder")
-      }
-    },
-    {
-      name: "creator",
-      type: "input",
-      label: t("page.common.system.tenant.package.column.creator"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.package.column.creator_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.package.column.creator_placeholder")
-      }
-    },
-    {
-      name: "createTime",
-      type: "input",
-      label: t("page.common.system.tenant.package.column.createTime"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.package.column.createTime_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.package.column.createTime_placeholder")
-      }
-    },
-    {
-      name: "updater",
-      type: "input",
-      label: t("page.common.system.tenant.package.column.updater"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.package.column.updater_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.package.column.updater_placeholder")
-      }
-    },
-    {
-      name: "updateTime",
-      type: "input",
-      label: t("page.common.system.tenant.package.column.updateTime"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.package.column.updateTime_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.package.column.updateTime_placeholder")
-      }
-    },
-    {
-      name: "deleted",
-      type: "input",
-      label: t("page.common.system.tenant.package.column.deleted"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.package.column.deleted_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.package.column.deleted_placeholder")
       }
     }
   ];

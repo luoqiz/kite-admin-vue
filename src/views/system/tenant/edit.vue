@@ -59,22 +59,6 @@ async function submitForm(formEl: FormInstance | undefined) {
 const options = computed(() => {
   return [
     {
-      name: "id",
-      type: "input",
-      label: t("page.common.system.tenant.column.id"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.column.id_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.column.id_placeholder")
-      }
-    },
-    {
       name: "name",
       type: "input",
       label: t("page.common.system.tenant.column.name"),
@@ -140,7 +124,7 @@ const options = computed(() => {
     },
     {
       name: "status",
-      type: "input",
+      tagName: "el-switch",
       label: t("page.common.system.tenant.column.status"),
       rules: [
         {
@@ -150,8 +134,7 @@ const options = computed(() => {
         }
       ],
       props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.column.status_placeholder")
+        style: "--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
       }
     },
     {
@@ -188,7 +171,7 @@ const options = computed(() => {
     },
     {
       name: "expireTime",
-      type: "input",
+      type: "datePicker",
       label: t("page.common.system.tenant.column.expireTime"),
       rules: [
         {
@@ -198,7 +181,7 @@ const options = computed(() => {
         }
       ],
       props: {
-        maxLength: 50,
+        "value-format": "YYYY-MM-DD HH:mm:ss",
         placeholder: t("page.common.system.tenant.column.expireTime_placeholder")
       }
     },
@@ -216,86 +199,6 @@ const options = computed(() => {
       props: {
         maxLength: 50,
         placeholder: t("page.common.system.tenant.column.accountCount_placeholder")
-      }
-    },
-    {
-      name: "creator",
-      type: "input",
-      label: t("page.common.system.tenant.column.creator"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.column.creator_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.column.creator_placeholder")
-      }
-    },
-    {
-      name: "createTime",
-      type: "input",
-      label: t("page.common.system.tenant.column.createTime"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.column.createTime_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.column.createTime_placeholder")
-      }
-    },
-    {
-      name: "updater",
-      type: "input",
-      label: t("page.common.system.tenant.column.updater"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.column.updater_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.column.updater_placeholder")
-      }
-    },
-    {
-      name: "updateTime",
-      type: "input",
-      label: t("page.common.system.tenant.column.updateTime"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.column.updateTime_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.column.updateTime_placeholder")
-      }
-    },
-    {
-      name: "deleted",
-      type: "input",
-      label: t("page.common.system.tenant.column.deleted"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.system.tenant.column.deleted_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.system.tenant.column.deleted_placeholder")
       }
     }
   ];

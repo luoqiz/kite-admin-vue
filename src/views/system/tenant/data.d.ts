@@ -7,7 +7,7 @@ export interface SysTenantDataModel {
   contactUserId?: number; //联系人的用户编号
   contactName: string; //联系人
   contactMobile?: string; //联系手机
-  status: number; //租户状态（0正常 1停用）
+  status: boolean; //租户状态（0正常 1停用）
   domain?: string; //绑定域名
   packageId: number; //租户套餐编号
   expireTime: Date; //过期时间
@@ -54,18 +54,31 @@ export const setupAttributes = () => {
         name: "status",
         type: "select",
         props: {
-          placeholder: t("page.common.system.tenant.column.status_placeholder"),
-          options: [
-            {
-              value: "Option1",
-              label: "Option1"
-            },
-            {
-              value: "Option2",
-              label: "Option2"
+          placeholder: t("page.common.system.tenant.column.status_placeholder")
+        },
+        children: [
+          {
+            tagName: "el-option",
+            props: {
+              label: "全部",
+              value: ""
             }
-          ]
-        }
+          },
+          {
+            tagName: "el-option",
+            props: {
+              label: "正常",
+              value: "1"
+            }
+          },
+          {
+            tagName: "el-option",
+            props: {
+              label: "停用",
+              value: "0"
+            }
+          }
+        ]
       },
       {
         label: t("page.common.system.tenant.column.packageId"),
@@ -156,11 +169,6 @@ export const setupAttributes = () => {
         prop: "updateTime",
         show: true,
         label: t("page.common.system.tenant.column.updateTime")
-      },
-      {
-        prop: "deleted",
-        show: true,
-        label: t("page.common.system.tenant.column.deleted")
       },
       {
         prop: "actions",
