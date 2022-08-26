@@ -23,6 +23,18 @@ export default {
       path: "tenant_package",
       component: () => import("@/views/system/tenantPackage/index.vue"),
       meta: { menu: { title: "router.system.tenant_package" } }
+    },
+    {
+      name: "dict",
+      path: "dict",
+      component: () => import("@/views/system/dict/index.vue"),
+      meta: { menu: { title: "router.system.dict" } }
+    },
+    {
+      name: "dict_detail",
+      path: "dict_detail",
+      component: () => import("@/views/system/dict_detail/index.vue"),
+      meta: { menu: { title: "router.system.dict_detail" } }
     }
   ]
 } as RouteRecordRaw;
