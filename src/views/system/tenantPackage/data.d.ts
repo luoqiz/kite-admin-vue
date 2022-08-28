@@ -1,5 +1,6 @@
 import { CTableColumn } from "#/table";
 import { useI18n } from "vue-i18n";
+import { formatTime } from "@/utils/common";
 
 export interface SysTenantPackageDataModel {
   id: number; //套餐编号
@@ -90,7 +91,8 @@ export const setupAttributes = () => {
       {
         prop: "status",
         show: true,
-        label: t("page.common.system.tenant.package.column.status")
+        label: t("page.common.system.tenant.package.column.status"),
+        scoped: "status"
       },
       {
         prop: "remark",
@@ -110,7 +112,9 @@ export const setupAttributes = () => {
       {
         prop: "createTime",
         show: true,
-        label: t("page.common.system.tenant.package.column.createTime")
+        label: t("page.common.system.tenant.package.column.createTime"),
+        width: "180",
+        formatter: formatTime
       },
       {
         prop: "updater",
@@ -120,7 +124,9 @@ export const setupAttributes = () => {
       {
         prop: "updateTime",
         show: true,
-        label: t("page.common.system.tenant.package.column.updateTime")
+        label: t("page.common.system.tenant.package.column.updateTime"),
+        width: "180",
+        formatter: formatTime
       },
       {
         prop: "deleted",

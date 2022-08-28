@@ -78,6 +78,11 @@ const {
           </el-popconfirm>
         </template>
 
+        <template #status="{ scope }">
+          <el-tag class="ml-2" type="success" v-if="scope.row.status == 1">正常</el-tag>
+          <el-tag class="ml-2" type="danger" v-if="scope.row.status == 0">停用</el-tag>
+        </template>
+
         <template #actions="{ scope }">
           <el-button size="small" @click="handleOpenEditDialog(scope.row)">{{
             t("page.common.btn.edit")

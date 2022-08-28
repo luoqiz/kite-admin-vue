@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
 import { useI18n } from "vue-i18n";
-import { setupAttributes, SysTenantDataModel, url } from "./data.d";
+import { setupAttributes, OccuClubDataModel, url } from "./data.d";
 import Edit from "./edit.vue";
 
 const { t } = useI18n();
 
 const initialValues = {
-  title: "",
-  content: "",
-  type: ""
+  tenantId: "",
+  name: "",
+  legalName: "",
+  legalPhone: "",
+  auditState: ""
 };
 
 const { searchFilterOptions, tableColumns } = setupAttributes();
@@ -40,7 +42,7 @@ const {
   handleBatchDelete,
   handleSearch,
   handleReset
-} = useSimpleList<SysTenantDataModel>(url) as SimpleListType;
+} = useSimpleList<OccuClubDataModel>(url) as SimpleListType;
 </script>
 
 <template>
@@ -76,11 +78,6 @@ const {
               <el-button :disabled="isEmpty" type="danger" icon="delete" circle />
             </template>
           </el-popconfirm>
-        </template>
-
-        <template #status="{ scope }">
-          <el-tag class="ml-2" type="success" v-if="scope.row.status == 1">正常</el-tag>
-          <el-tag class="ml-2" type="danger" v-if="scope.row.status == 0">停用</el-tag>
         </template>
 
         <template #actions="{ scope }">

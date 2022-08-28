@@ -1,5 +1,6 @@
 import { CTableColumn } from "#/table";
 import { useI18n } from "vue-i18n";
+import { formatTime } from "@/utils/common";
 
 export interface SysTenantDataModel {
   id: number; //租户编号
@@ -103,12 +104,14 @@ export const setupAttributes = () => {
       {
         prop: "id",
         show: true,
-        label: t("page.common.system.tenant.column.id")
+        label: t("page.common.system.tenant.column.id"),
+        width: "180"
       },
       {
         prop: "name",
         show: true,
-        label: t("page.common.system.tenant.column.name")
+        label: t("page.common.system.tenant.column.name"),
+        width: "180"
       },
       {
         prop: "contactUserId",
@@ -128,12 +131,14 @@ export const setupAttributes = () => {
       {
         prop: "status",
         show: true,
-        label: t("page.common.system.tenant.column.status")
+        label: t("page.common.system.tenant.column.status"),
+        scoped: "status"
       },
       {
         prop: "domain",
         show: true,
-        label: t("page.common.system.tenant.column.domain")
+        label: t("page.common.system.tenant.column.domain"),
+        width: "180"
       },
       {
         prop: "packageId",
@@ -143,7 +148,9 @@ export const setupAttributes = () => {
       {
         prop: "expireTime",
         show: true,
-        label: t("page.common.system.tenant.column.expireTime")
+        label: t("page.common.system.tenant.column.expireTime"),
+        width: "180",
+        formatter: formatTime
       },
       {
         prop: "accountCount",
@@ -153,22 +160,28 @@ export const setupAttributes = () => {
       {
         prop: "creator",
         show: true,
-        label: t("page.common.system.tenant.column.creator")
+        label: t("page.common.system.tenant.column.creator"),
+        width: "180"
       },
       {
         prop: "createTime",
         show: true,
-        label: t("page.common.system.tenant.column.createTime")
+        label: t("page.common.system.tenant.column.createTime"),
+        width: "180",
+        formatter: formatTime
       },
       {
         prop: "updater",
         show: true,
-        label: t("page.common.system.tenant.column.updater")
+        label: t("page.common.system.tenant.column.updater"),
+        width: "180"
       },
       {
         prop: "updateTime",
         show: true,
-        label: t("page.common.system.tenant.column.updateTime")
+        label: t("page.common.system.tenant.column.updateTime"),
+        width: "180",
+        formatter: formatTime
       },
       {
         prop: "actions",

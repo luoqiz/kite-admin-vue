@@ -1,4 +1,5 @@
 import { CTableColumn } from "#/table";
+import { formatTime, parseDate2Str } from "@/utils/common";
 import { useI18n } from "vue-i18n";
 
 export interface SysUserDataModel {
@@ -161,7 +162,8 @@ export const setupUserAttributes = () => {
         prop: "expireTime",
         show: true,
         label: t("page.common.system.user.column.expireTime"),
-        width: "180"
+        width: "180",
+        formatter: formatTime
       },
       {
         prop: "nonLocked",
@@ -171,12 +173,14 @@ export const setupUserAttributes = () => {
       {
         prop: "createTime",
         label: t("page.common.system.user.column.createTime"),
-        width: "180"
+        width: "180",
+        formatter: formatTime
       },
       {
         prop: "updateTime",
         label: t("page.common.system.user.column.updateTime"),
-        width: "180"
+        width: "180",
+        formatter: formatTime
       },
       {
         prop: "actions",
