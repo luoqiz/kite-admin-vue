@@ -10,19 +10,19 @@ export default {
       name: "club",
       path: "club",
       component: () => import("@/views/occu/club/index.vue"),
-      meta: { menu: { title: "router.occu.club" } }
+      meta: { menu: { title: "router.occu.club" }, keepAlive: true }
     },
     {
       name: "leader",
       path: "leader",
       component: () => import("@/views/occu/leader/index.vue"),
-      meta: { menu: { title: "router.occu.leader" } }
+      meta: { menu: { title: "router.occu.leader" }, keepAlive: true }
     },
     {
       name: "club_staff",
       path: "club_staff",
       component: () => import("@/views/occu/club_staff/index.vue"),
-      meta: { menu: { title: "router.occu.club_staff" } }
+      meta: { menu: { title: "router.occu.club_staff" }, keepAlive: true }
     }
   ]
 } as RouteRecordRaw;
