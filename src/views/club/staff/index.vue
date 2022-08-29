@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SimpleListType, useSimpleList } from "@/hooks/useSimpleList";
 import { useI18n } from "vue-i18n";
-import { setupAttributes, OccuClubStaffDataModel, url } from "./data.d";
+import { setupAttributes, ClubStaffDataModel, url } from "./data.d";
 import Edit from "./edit.vue";
 
 const { t } = useI18n();
@@ -40,7 +40,7 @@ const {
   handleBatchDelete,
   handleSearch,
   handleReset
-} = useSimpleList<OccuClubStaffDataModel>(url) as SimpleListType;
+} = useSimpleList<ClubStaffDataModel>(url) as SimpleListType;
 </script>
 
 <template>
