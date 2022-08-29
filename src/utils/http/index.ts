@@ -135,7 +135,11 @@ class CloudHttp {
   }
 
   // 单独抽离的batchDelete工具函数
-  public batchDelete<T, P>(url: string, params?: T, config?: CloudHttpRequestConfig): Promise<P> {
+  public batchDelete<T, P>(
+    url: string,
+    params?: AxiosRequestConfig<T>,
+    config?: CloudHttpRequestConfig
+  ): Promise<P> {
     return this.request<P>("delete", url, params, config);
   }
 }
