@@ -7,9 +7,9 @@ import Edit from "./edit.vue";
 const { t } = useI18n();
 
 const initialValues = {
-  title: "",
-  content: "",
-  type: ""
+  clubId: "",
+  categories: "",
+  auditState: ""
 };
 
 const { searchFilterOptions, tableColumns } = setupAttributes();

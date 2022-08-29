@@ -59,50 +59,32 @@ async function submitForm(formEl: FormInstance | undefined) {
 const options = computed(() => {
   return [
     {
-      name: "id",
-      type: "input",
-      label: t("page.common.club.staff.package.column.id"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.club.staff.package.column.id_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.club.staff.package.column.id_placeholder")
-      }
-    },
-    {
       name: "clubId",
-      type: "input",
+      tagName: "el-input",
       label: t("page.common.club.staff.package.column.clubId"),
       rules: [
         {
           required: true,
-          message: t("page.common.club.staff.package.column.clubId_placeholder"),
-          trigger: "blur"
+          message: t("page.common.club.staff.package.column.clubId_placeholder")
         }
       ],
       props: {
-        maxLength: 50,
+        step: 1,
         placeholder: t("page.common.club.staff.package.column.clubId_placeholder")
       }
     },
     {
       name: "userId",
-      type: "input",
+      tagName: "el-input",
       label: t("page.common.club.staff.package.column.userId"),
       rules: [
         {
           required: true,
-          message: t("page.common.club.staff.package.column.userId_placeholder"),
-          trigger: "blur"
+          message: t("page.common.club.staff.package.column.userId_placeholder")
         }
       ],
       props: {
-        maxLength: 50,
+        step: 1,
         placeholder: t("page.common.club.staff.package.column.userId_placeholder")
       }
     },
@@ -118,7 +100,7 @@ const options = computed(() => {
         }
       ],
       props: {
-        maxLength: 50,
+        maxLength: 150,
         placeholder: t("page.common.club.staff.package.column.categories_placeholder")
       }
     },
@@ -134,72 +116,8 @@ const options = computed(() => {
         }
       ],
       props: {
-        maxLength: 50,
+        maxLength: 150,
         placeholder: t("page.common.club.staff.package.column.auditState_placeholder")
-      }
-    },
-    {
-      name: "createBy",
-      type: "input",
-      label: t("page.common.club.staff.package.column.createBy"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.club.staff.package.column.createBy_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.club.staff.package.column.createBy_placeholder")
-      }
-    },
-    {
-      name: "updateBy",
-      type: "input",
-      label: t("page.common.club.staff.package.column.updateBy"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.club.staff.package.column.updateBy_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.club.staff.package.column.updateBy_placeholder")
-      }
-    },
-    {
-      name: "createAt",
-      type: "input",
-      label: t("page.common.club.staff.package.column.createAt"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.club.staff.package.column.createAt_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.club.staff.package.column.createAt_placeholder")
-      }
-    },
-    {
-      name: "updateAt",
-      type: "input",
-      label: t("page.common.club.staff.package.column.updateAt"),
-      rules: [
-        {
-          required: true,
-          message: t("page.common.club.staff.package.column.updateAt_placeholder"),
-          trigger: "blur"
-        }
-      ],
-      props: {
-        maxLength: 50,
-        placeholder: t("page.common.club.staff.package.column.updateAt_placeholder")
       }
     }
   ];
