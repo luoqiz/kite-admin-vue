@@ -19,6 +19,12 @@ export default {
       meta: { menu: { title: "router.club.activity" }, keepAlive: true }
     },
     {
+      name: "activity_edit",
+      path: "activity_edit",
+      component: () => import("@/views/club/activity/EditPage.vue"),
+      meta: { menu: { title: "router.club.activity.edit" }, keepAlive: true, hidden: true }
+    },
+    {
       name: "activity_label",
       path: "activity_label",
       component: () => import("@/views/club/activity_label/index.vue"),

@@ -28,7 +28,7 @@ export interface ClubActivityDataModel {
   visits: number; //浏览量
   details: string; //活动详情
   itinerary: string; //行程安排
-  activityRequirements: string; //行程要求
+  tripRequirements: string; //行程要求
   equipment: string; //装备要求
   notes: string; //报名须知
   insurance: string; //保险
@@ -418,9 +418,9 @@ export const setupAttributes = () => {
         width: "180"
       },
       {
-        prop: "activityRequirements", ///行程要求
+        prop: "tripRequirements", ///行程要求
         show: true,
-        label: t("page.common.club.activity.package.column.activityRequirements"),
+        label: t("page.common.club.activity.package.column.tripRequirements"),
         width: "180"
       },
       {

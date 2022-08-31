@@ -133,6 +133,7 @@ const options = computed(() => {
         }
       ],
       props: {
+        type: "datetime",
         "value-format": "YYYY-MM-DD HH:mm:ss",
         placeholder: t("page.common.club.activity.package.column.startTime_placeholder")
       }
@@ -148,6 +149,7 @@ const options = computed(() => {
         }
       ],
       props: {
+        type: "datetime",
         "value-format": "YYYY-MM-DD HH:mm:ss",
         placeholder: t("page.common.club.activity.package.column.endTime_placeholder")
       }
@@ -163,6 +165,7 @@ const options = computed(() => {
         }
       ],
       props: {
+        type: "datetime",
         "value-format": "YYYY-MM-DD HH:mm:ss",
         placeholder: t("page.common.club.activity.package.column.postingTime_placeholder")
       }
@@ -178,6 +181,7 @@ const options = computed(() => {
         }
       ],
       props: {
+        type: "datetime",
         "value-format": "YYYY-MM-DD HH:mm:ss",
         placeholder: t("page.common.club.activity.package.column.regisTime_placeholder")
       }
@@ -193,13 +197,14 @@ const options = computed(() => {
         }
       ],
       props: {
+        type: "datetime",
         "value-format": "YYYY-MM-DD HH:mm:ss",
         placeholder: t("page.common.club.activity.package.column.refundTime_placeholder")
       }
     },
     {
       name: "quota",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.quota"),
       rules: [
         {
@@ -208,13 +213,13 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
+        maxLength: 150,
         placeholder: t("page.common.club.activity.package.column.quota_placeholder")
       }
     },
     {
       name: "publisherId",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.publisherId"),
       rules: [
         {
@@ -223,13 +228,13 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
+        maxLength: 150,
         placeholder: t("page.common.club.activity.package.column.publisherId_placeholder")
       }
     },
     {
       name: "clubId",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.clubId"),
       rules: [
         {
@@ -238,7 +243,7 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
+        maxLength: 150,
         placeholder: t("page.common.club.activity.package.column.clubId_placeholder")
       }
     },
@@ -292,7 +297,7 @@ const options = computed(() => {
     },
     {
       name: "strengthLevel",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.strengthLevel"),
       rules: [
         {
@@ -301,13 +306,14 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
-        placeholder: t("page.common.club.activity.package.column.strengthLevel_placeholder")
+        maxLength: 150,
+        placeholder: t("page.common.club.activity.package.column.strengthLevel_placeholder"),
+        trigger: "blur"
       }
     },
     {
       name: "mileage",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.mileage"),
       rules: [
         {
@@ -315,13 +321,14 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
-        placeholder: t("page.common.club.activity.package.column.mileage_placeholder")
+        maxLength: 150,
+        placeholder: t("page.common.club.activity.package.column.mileage_placeholder"),
+        trigger: "blur"
       }
     },
     {
       name: "rise",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.rise"),
       rules: [
         {
@@ -329,21 +336,23 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
-        placeholder: t("page.common.club.activity.package.column.rise_placeholder")
+        maxLength: 150,
+        placeholder: t("page.common.club.activity.package.column.rise_placeholder"),
+        trigger: "blur"
       }
     },
     {
       name: "decline",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.decline"),
       rules: [
         {
-          message: t("page.common.club.activity.package.column.decline_placeholder")
+          message: t("page.common.club.activity.package.column.decline_placeholder"),
+          trigger: "blur"
         }
       ],
       props: {
-        step: 1,
+        maxLength: 150,
         placeholder: t("page.common.club.activity.package.column.decline_placeholder")
       }
     },
@@ -358,6 +367,7 @@ const options = computed(() => {
         }
       ],
       props: {
+        type: "datetime",
         "value-format": "YYYY-MM-DD HH:mm:ss",
         placeholder: t("page.common.club.activity.package.column.gatheringTime_placeholder")
       }
@@ -380,7 +390,7 @@ const options = computed(() => {
     },
     {
       name: "visits",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.visits"),
       rules: [
         {
@@ -389,7 +399,7 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
+        maxLength: 150,
         placeholder: t("page.common.club.activity.package.column.visits_placeholder")
       }
     },
@@ -458,8 +468,9 @@ const options = computed(() => {
     },
     {
       name: "notes",
-      type: "input",
+      type: "richText",
       label: t("page.common.club.activity.package.column.notes"),
+      colSpan: 24,
       rules: [
         {
           required: true,
@@ -490,7 +501,7 @@ const options = computed(() => {
     },
     {
       name: "price",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.price"),
       rules: [
         {
@@ -499,7 +510,7 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
+        maxLength: 150,
         placeholder: t("page.common.club.activity.package.column.price_placeholder")
       }
     },
@@ -534,7 +545,7 @@ const options = computed(() => {
     },
     {
       name: "reservationPrice",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.reservationPrice"),
       rules: [
         {
@@ -543,7 +554,7 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
+        maxLength: 150,
         placeholder: t("page.common.club.activity.package.column.reservationPrice_placeholder")
       }
     },
@@ -608,7 +619,7 @@ const options = computed(() => {
     },
     {
       name: "viewTimes",
-      tagName: "el-input-number",
+      type: "input",
       label: t("page.common.club.activity.package.column.viewTimes"),
       rules: [
         {
@@ -616,7 +627,7 @@ const options = computed(() => {
         }
       ],
       props: {
-        step: 1,
+        maxLength: 150,
         placeholder: t("page.common.club.activity.package.column.viewTimes_placeholder")
       }
     }
@@ -629,17 +640,27 @@ defineExpose({
 });
 </script>
 <template>
-  <el-drawer v-model="visible" :width="dialogWidth" :title="title" @close="cancel">
-    <template #footer>
+  <!-- <template #footer>
       <span class="dialog-footer">
         <el-button @click="cancel">{{ t("page.common.btn.cancel") }}</el-button>
         <el-button type="primary" @click="submitForm(ruleFormRef)">{{
           t("page.common.btn.confirm")
         }}</el-button>
       </span>
-    </template>
-    <c-form ref="ruleFormRef" v-model:value="model" label-width="80px" :options="options"> </c-form>
-  </el-drawer>
+    </template> -->
+  <div class="box-class">
+    <c-form ref="ruleFormRef" v-model:value="model" label-width="auto" :options="options"> </c-form>
+    <span class="dialog-footer">
+      <el-button @click="cancel">{{ t("page.common.btn.cancel") }}</el-button>
+      <el-button type="primary" @click="submitForm(ruleFormRef)">{{
+        t("page.common.btn.confirm")
+      }}</el-button>
+    </span>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.box-class {
+  padding: 2rem;
+}
+</style>

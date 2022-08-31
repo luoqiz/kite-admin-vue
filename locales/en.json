@@ -347,6 +347,7 @@
   "page.common.club.staff.package.column.updateAt": "updateAt",
   "page.common.club.staff.package.column.updateAt_placeholder": "Please input updateAt",
   "router.club.activity": "Activity Manage",
+  "router.club.activity.edit": "Activity Edit",
   "page.common.club.activity.package.column.id": "id",
   "page.common.club.activity.package.column.id_placeholder": "Please input id",
   "page.common.club.activity.package.column.title": "title",
