@@ -1,7 +1,7 @@
 import { onMounted, reactive, toRefs } from "vue";
 import { http } from "@/utils/http";
 import { useMessage } from "./useMessage";
-import { BasicResult } from "#/resultType";
+import { BasicResult, PageBasicResult } from "#/resultType";
 import ListFactory, { UrlListType } from "@/utils/list/listFactory";
 import { useI18n } from "vue-i18n";
 
@@ -37,9 +37,9 @@ function useSimpleList<T, U = any>(url: Partial<UrlListType>) {
     const params = getQueryParams();
     try {
       loading.value = true;
-      const res = await http.get<U, BasicResult<T[]>>(url.list, params);
-      dataSource.value = res.data as any;
-      ipagination.value.total = Number(res.total!);
+      const res = await http.get<U, PageBasicResult<T[]>>(url.list, params);
+      dataSource.value = res.data.data as any;
+      ipagination.value.total = Number(res.data.total!);
     } finally {
       loading.value = false;
     }
