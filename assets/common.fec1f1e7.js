@@ -1,0 +1,1 @@
+import{d as a}from"./dayjs.5bdc91a4.js";function s(r,t){return t=t||"YYYY-MM-DD HH:mm:ss",a(r).format(t)}function m(r,t){let e=r[t.property];return s(new Date(e),"YYYY-MM-DD HH:mm:ss")}export{m as f};
